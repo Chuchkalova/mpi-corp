@@ -1,0 +1,198 @@
+<?
+	$data=array(
+		'id'=>11,
+		'name'=>"Каталог",
+		'fields'=>array(		
+			'name'=>array(
+				'russian_name'=>'Заголовок',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'articul'=>array(
+				'russian_name'=>'Артикул',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'marer_id'=>array(
+				'russian_name'=>'Производитель',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'short_text'=>array(
+				'russian_name'=>'Краткое содержимое',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'text'=>array(
+				'russian_name'=>'Полное содержимое',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'order'=>array(
+				'russian_name'=>'Порядок',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'is_show'=>array(
+				'russian_name'=>'Показать',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'date'=>array(
+				'russian_name'=>'Дата',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'price'=>array(
+				'russian_name'=>'Цена',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'discount'=>array(
+				'russian_name'=>'Скидка',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'currency'=>array(
+				'russian_name'=>'Валюта',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'count'=>array(
+				'russian_name'=>'Наличие',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'file1'=>array(
+				'russian_name'=>'Файл 1',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'file2'=>array(
+				'russian_name'=>'Файл 2',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'file3'=>array(
+				'russian_name'=>'Файл 3',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'file4'=>array(
+				'russian_name'=>'Файл 4',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'gallery_id'=>array(
+				'russian_name'=>'Галерея',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'url'=>array(
+				'russian_name'=>'URL',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'h1'=>array(
+				'russian_name'=>'h1',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'meta_title'=>array(
+				'russian_name'=>'meta-title',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'meta_description'=>array(
+				'russian_name'=>'meta-description',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'meta_keywords'=>array(
+				'russian_name'=>'meta-keywords',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'is_new'=>array(
+				'russian_name'=>'Новинка',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'is_hit'=>array(
+				'russian_name'=>'Хит',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'is_sale'=>array(
+				'russian_name'=>'Распродажа',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+		),
+		'rools'=>array(
+			'access'=>true,
+			'add'=>true,
+			'edit'=>true,
+			'delete'=>true,
+			'show'=>true,
+		),
+		'settings'=>array(
+			'module'=>array(
+				'name'=>'Конфигурация модуля',
+				'data'=>array(
+					'is_groups'=>array(
+						'name'=>'Разрешать создавать группы',
+						'type'=>'checkbox',
+						'value'=>true,
+					),
+					'is_extra'=>array(
+						'name'=>'Разрешать множество предков',
+						'type'=>'checkbox',
+						'value'=>false,
+					),
+					'is_type'=>array(
+						'name'=>'Разрешать атрибуты',
+						'type'=>'checkbox',
+						'value'=>false,
+					),
+					'is_variants'=>array(
+						'name'=>'Разрешать варианты',
+						'type'=>'checkbox',
+						'value'=>false,
+					),
+				),
+			),
+		),
+		'functions'=>array(
+			'menu_level1'=>array(
+				'name'=>'Вывод одноуровневого меню',
+				'params'=>array(
+					'pid'=>array(
+						'name'=>'ИД корня',
+						'type'=>'text',
+					),
+					'is_count'=>array(
+						'name'=>'Показывать кол-во',
+						'type'=>'checkbox',
+					),
+				),
+			),
+			'subcats_level1'=>array(
+				'name'=>'Вывод подкатегорий одного уровня',
+				'params'=>array(
+					'pid'=>array(
+						'name'=>'ИД корня',
+						'type'=>'text',
+					),
+					'is_count'=>array(
+						'name'=>'Показывать кол-во',
+						'type'=>'checkbox',
+					),
+				),
+			),
+		),
+		'special'=>array(
+			'/catalogs/show_all'=>'Показать все',
+		),
+	);
+?>

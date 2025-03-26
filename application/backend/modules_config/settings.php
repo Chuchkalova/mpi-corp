@@ -1,0 +1,44 @@
+<?
+	$data=array(
+		'id'=>25,
+		'name'=>"Настройки",
+		'fields'=>array(
+			'name'=>array(
+				'russian_name'=>'Наименование',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'value'=>array(
+				'russian_name'=>'Значение',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+		),
+		'rools'=>array(
+			'access'=>true,
+			'add'=>false,
+			'edit'=>true,
+			'delete'=>false,
+			'show'=>true,
+		),
+		'settings'=>array(
+			'all'=>array(
+				'name'=>'Общие настройки сайта',
+				'data'=>array(
+					'is_breadcrumbs'=>array(
+						'name'=>'Показывать хлебные крошки',
+						'type'=>'checkbox',
+						'value'=>true,
+					),
+				),
+			),
+		),
+		'functions'=>array(
+			'countdown'=>array(
+				'name'=>'Обратный отсчет',
+				'params'=>array(
+				),
+			),
+		),
+	);
+?>

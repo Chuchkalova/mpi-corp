@@ -1,0 +1,7 @@
+<?
+	$config['upload_path'] = $_SERVER['DOCUMENT_ROOT']."/dir_images/";
+	$config['allowed_types'] = 'gif|jpg|png';
+	$config['max_size'] = '1024';
+	$config['max_width'] = '1024';
+	$config['max_height'] = '768';
+?>

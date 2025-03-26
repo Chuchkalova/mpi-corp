@@ -1,0 +1,32 @@
+<?
+	$data=array(
+		'id'=>12,
+		'name'=>"Заказы(товары)",
+		'fields'=>array(
+			'count'=>array(
+				'russian_name'=>'Кол-во',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'price'=>array(
+				'russian_name'=>'Цена',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+		),
+		'rools'=>array(
+			'access'=>true,
+			'add'=>true,
+			'edit'=>true,
+			'delete'=>true,
+			'show'=>true,
+		),
+		'functions'=>array(
+			'short_cart'=>array(
+				'name'=>'Вывод корзины',
+				'params'=>array(
+				),
+			),
+		),
+	);
+?>

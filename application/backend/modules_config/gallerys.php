@@ -1,0 +1,87 @@
+<?
+	$data=array(
+		'id'=>10,
+		'name'=>"Галереи",
+		'fields'=>array(		
+			'name'=>array(
+				'russian_name'=>'Заголовок',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'pid'=>array(
+				'russian_name'=>'Предок',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'short_text'=>array(
+				'russian_name'=>'Краткое содержимое',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'text'=>array(
+				'russian_name'=>'Полное содержимое',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'href'=>array(
+				'russian_name'=>'Ссылка',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'order'=>array(
+				'russian_name'=>'Порядок',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'is_show'=>array(
+				'russian_name'=>'Показать',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'date'=>array(
+				'russian_name'=>'Дата',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'file'=>array(
+				'russian_name'=>'Файл',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+		),
+		'rools'=>array(
+			'access'=>true,
+			'add'=>true,
+			'edit'=>true,
+			'delete'=>true,
+			'show'=>true,
+		),
+		'special'=>array(
+			'/gallerys/show_all'=>'Показать все',
+		),
+		'functions'=>array(
+			'bxslider'=>array(
+				'name'=>'Слайдер',
+				'params'=>array(
+					'pid'=>array(
+						'name'=>'ИД галереи',
+						'type'=>'text',
+					),
+				),
+			),
+			'bxcarousel'=>array(
+				'name'=>'Карусель',
+				'params'=>array(
+					'pid'=>array(
+						'name'=>'ИД галереи',
+						'type'=>'text',
+					),
+					'count'=>array(
+						'name'=>'Показывать кол-во',
+						'type'=>'checkbox',
+					),
+				),
+			),
+		),
+	);
+?>

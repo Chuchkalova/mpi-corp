@@ -1,0 +1,69 @@
+<?
+	$data=array(
+		'id'=>3,
+		'name'=>"Специальные",
+		'fields'=>array(
+			'name'=>array(
+				'russian_name'=>'Заголовок',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'short_text'=>array(
+				'russian_name'=>'Краткое содержимое',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'text'=>array(
+				'russian_name'=>'Полное содержимое',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'file'=>array(
+				'russian_name'=>'Файл',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+			'url'=>array(
+				'russian_name'=>'URL',
+				'is_active'=>true,
+				'is_always'=>true,
+			),
+			'h1'=>array(
+				'russian_name'=>'h1',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'meta_title'=>array(
+				'russian_name'=>'meta-title',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'meta_description'=>array(
+				'russian_name'=>'meta-description',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'meta_keywords'=>array(
+				'russian_name'=>'meta-keywords',
+				'is_active'=>true,
+				'is_always'=>false,
+			),
+			'region_rewrite'=>array(
+				'russian_name'=>'Разрешить перезапись',
+				'is_active'=>false,
+				'is_always'=>false,
+			),
+		),
+		'special'=>array(
+			'/'=>'Главная',
+			'/center'=>'Учебный центр',
+		),
+		'rools'=>array(
+			'access'=>true,
+			'add'=>true,
+			'edit'=>true,
+			'delete'=>true,
+			'show'=>true,
+		),
+	);
+?>
