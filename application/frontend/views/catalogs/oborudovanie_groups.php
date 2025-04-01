@@ -152,14 +152,19 @@ print_r ($item_one);
 
   </section>
 
-  <section class="ing-info">
-
+<? $urlImg = get_image('catalogs_group','file',$item['id'])?>
+<?if (strpos($urlImg, 'null.png') === false && strpos($urlImg, 'catalogs_group_file_8_l.png') === false) { ?>
+  <section class="ing-info test1">
+        <pre style="display: none;">
+            <?print_r($urlImg)?>
+        </pre>
     <div class="container">
-      <img src="<?= get_image('catalogs_group','file',$item['id']); ?>" alt="" class="detail-logo-img">
+
+      <img src="<?= $urlImg ?>" alt="" class="detail-logo-img">
       <div class="wrap-text-detail-company">
         <?= $item['text'] ?>
       </div>
-<!--       <div class="ing-info-side">
+        <!--<div class="ing-info-side">
 
         <div class="ing-info-side-left">
 
@@ -182,3 +187,4 @@ print_r ($item_one);
     </div>
 
   </section>
+<?}?>
