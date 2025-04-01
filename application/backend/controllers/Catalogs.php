@@ -193,10 +193,10 @@ class Catalogs extends MY_Table
                         // Обработка типов товара
                         $sqls = array();
                         foreach ($types_translate as $index => $type_id) {
-//                            if (isset($rows[$i][$index]) && (int)trim($rows[$i][$index]) == 1) {
-//                                $sqls[] = "($item_id, $type_id)";
-//                            }
-                            $sqls[] = "($item_id, $type_id)";
+                            if (isset($rows[$i][$index]) && (int)trim($rows[$i][$index]) == 1) {
+                                $sqls[] = "($item_id, $type_id)";
+                            }
+                            //$sqls[] = "($item_id, $type_id)";
                         }
 
                         // Массивы для хранения item_id и type_id
