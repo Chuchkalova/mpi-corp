@@ -21,11 +21,55 @@
 
   <link rel="stylesheet" href="/css/main.css?v=1">
 
+    <?php
+    // Получаем текущий URL
+    $current_url = $_SERVER['REQUEST_URI'];
 
+    if ($current_url !== '/') {
+        // Убираем конечный слеш, если он есть
+        if (substr($current_url, -1) === '/') {
+            $current_url = rtrim($current_url, '/');
+            header("Location: $current_url", true, 301);
+            exit();
+        }
 
-  <title><?= $meta_title; ?></title>
+        // Проверяем, если это первая страница пагинации
+        // Предполагаем, что первая страница всегда имеет формат /имя_раздела/1
+        if (preg_match('#^/(.+)/1$#', $current_url, $matches)) {
+            // Перенаправляем на основную страницу без номера
+            $base_url = 'https://mpi-corp.ru/' . $matches[1]; // Формируем базовый URL
+            header("Location: $base_url", true, 301);
+            exit();
+        }
 
-  <meta name="description" content="<?= $meta_description; ?>" />
+        // Проверяем, содержит ли URL номер страницы
+        if (preg_match('/\/\d+$/', $current_url)) {
+            ?>
+            <style>
+                .developer-tab-list {
+                    display: none;
+                }
+            </style>
+            <?
+        }
+        // Проверяем, если это страница пагинации
+        if (preg_match('#^/(.+)/(\d+)$#', $current_url, $matches)) {
+            // Получаем номер страницы
+            $page_number = (int)$matches[2];
+
+            // Проверяем, если номер страницы 2 или выше
+            if ($page_number >= 2) {
+                // Добавляем номер страницы к заголовку
+                $meta_title .= " - страница " . $page_number;
+                $meta_description .= " - страница " . $page_number;
+            }
+        }
+    }
+    ?>
+
+  <title><?= htmlspecialchars($meta_title); ?></title>
+
+  <meta name="description" content="<?= htmlspecialchars($meta_description); ?>" />
 
   <meta name="keywords" content="<?= $meta_keywords; ?>" />
 
@@ -875,6 +919,44 @@
         }
     }
   </style>
+  <script>
+      // Функция для определения, находимся ли мы на странице пагинации
+      function isPaginationPage() {
+          const pathParts = window.location.pathname.split('/'); // Разбиваем путь URL
+          const page = pathParts[pathParts.length - 1]; // Предполагаем, что номер страницы находится в конце пути
+          console.log('Номер страницы из URL:', page); // Отладка: выводим номер страницы
+          return page && !isNaN(page) && parseInt(page) >= 2; // Проверяем, что страница 2 или выше
+      }
+
+      // Функция для добавления текста к заголовку h1
+      function updateH1WithPageNumber() {
+          if (isPaginationPage()) {
+              const pathParts = window.location.pathname.split('/');
+              const page = pathParts[pathParts.length - 1]; // Получаем номер страницы
+              console.log('Мы на странице пагинации:', page); // Отладка: подтверждаем, что мы на странице пагинации
+              const secondSideRightBlock = document.querySelector('.second-side-right');
+
+              if (secondSideRightBlock) {
+                  const h1 = secondSideRightBlock.querySelector('h1');
+                  if (h1) {
+                      console.log('Найден заголовок h1:', h1.textContent); // Отладка: выводим текущий текст h1
+                      h1.textContent += ` - страница ${page}`; // Добавляем текст
+                      console.log('Обновленный текст h1:', h1.textContent); // Отладка: выводим обновленный текст h1
+                  } else {
+                      console.error('Заголовок h1 не найден внутри блока second-side-right.'); // Сообщение об ошибке
+                  }
+              } else {
+                  console.error('Блок second-side-right не найден.'); // Сообщение об ошибке
+              }
+          } else {
+              console.log('Мы не на странице пагинации или на первой странице.'); // Отладка: если не на пагинации
+          }
+      }
+
+      // Запускаем функцию при загрузке страницы
+      document.addEventListener('DOMContentLoaded', updateH1WithPageNumber);
+
+  </script>
 
 </body>
 
