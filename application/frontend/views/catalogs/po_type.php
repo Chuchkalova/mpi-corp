@@ -116,7 +116,7 @@
 
   </section>
 
-  <section class="ing-info">
+  <section class="ing-info test1">
 
     <div class="container">
 

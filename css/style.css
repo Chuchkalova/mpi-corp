@@ -1,0 +1,90 @@
+/*fixed size*/
+.container{
+	width: 1000px !important;
+}
+.container-fluid{
+	min-width: 1000px !important;
+}
+/*fixed size ends*/
+
+/*common*/
+body{
+	font-family: 'PT Sans', sans-serif;
+	color:#000;
+	margin-bottom: 220px;
+	font-size:14px;
+}
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding-top:100px;
+	height: 220px;
+	background: transparent url(../site_img/footer.jpg) no-repeat bottom center;
+}
+a{
+	color:#ff6600;
+}
+a:focus{
+	color:inherit;
+}
+a:hover{
+	color:inherit;
+}
+.color-normal{
+	color:#000;
+}
+.color-black{
+	color:#000;
+}
+.color-gray{
+	color:#414141;
+}
+.color-white{
+	color:#ffffff;
+}
+.color-orange{
+	color:#ff6600;
+}
+.telegram-button {
+	display: block;
+    position: fixed;
+    right: 45px;
+    bottom: 130px;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+.telegram-button::before, .telegram-button::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    border: 50%;
+    border: 1px solid #25D366;
+    left: -20px;
+    right: -20px;
+    top: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    animation: animate 1.5s linear infinite;
+    opacity: 0;
+    backface-visibility: hidden;
+}
+
+.telegram-button::after {
+    animation-delay: .5s;
+}
+@keyframes animate {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}

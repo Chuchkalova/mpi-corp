@@ -35,8 +35,21 @@
     </div>
 
   </section>
+<section class="developer-catalog-form">
+    <div class="container">
+        <div class="wrap-developer-catalog-form">
+            <div class="developer-catalog-form-top">
+                <h2>Нужна помощь в подборе ПО или оборудования?</h2>
+                <a href="#" data-popup="call">Оставить заявку</a>
+            </div>
+            <div class="developer-catalog-form-bottom">
+                <p>Оставьте заявку, и наши специалисты помогут с выбором.</p>
+            </div>
 
-  <section class="developer-catalog">
+        </div>
+    </div>
+</section>
+  <section class="developer-catalog test">
 
     <div class="container">
 

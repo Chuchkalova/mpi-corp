@@ -57,6 +57,7 @@ class mains extends MY_ControllerTmpl {
 		}
 		
 		$this->forms_model->email('Заполнена форма на сайте '.$_SERVER['SERVER_NAME'], $this->settings[1], $text);
+
 	}
 	
 }

@@ -1,0 +1,192 @@
+# Перенаправление старых URL на новые
+	Redirect 301 /actions_events https://mpi-corp.ru/akcii
+	Redirect 301 /avtograf https://mpi-corp.ru/avtograf1
+	Redirect 301 /csdev https://mpi-corp.ru/csoft
+	Redirect 301 /giproproject https://mpi-corp.ru/gipro1
+	Redirect 301 /kaspersky https://mpi-corp.ru/kaspersky_lab
+	Redirect 301 /contacts https://mpi-corp.ru/kontakty
+	Redirect 301 /myoffice https://mpi-corp.ru/mojofis
+	Redirect 301 /equipment https://mpi-corp.ru/oborudovanie
+	Redirect 301 /platform https://mpi-corp.ru/platforma_nanocad
+	Redirect 301 /soft https://mpi-corp.ru/programmnoe_obespechenie
+	Redirect 301 /r7 https://mpi-corp.ru/r7_ofis
+	Redirect 301 /sale_catalog_2023 https://mpi-corp.ru/radioelektronnye_komponenty
+	Redirect 301 /stendy https://mpi-corp.ru/
+	Redirect 301 /smart-soft https://mpi-corp.ru/smart-soft
+	Redirect 301 /smathstudio https://mpi-corp.ru/smath
+	Redirect 301 /tdms-farvater https://mpi-corp.ru/
+	
+Order Allow,Deny
+Allow from all
+Deny from 13.58.238.154
+Deny from 13.59.154.120
+Deny from 13.69.198.6
+Deny from 13.69.223.182
+Deny from 13.69.252.138
+Deny from 13.72.65.86
+Deny from 13.73.162.150
+Deny from 13.74.122.142
+Deny from 13.74.62.165
+Deny from 13.78.66.20
+Deny from 13.83.167.128
+Deny from 13.83.167.130
+Deny from 13.83.167.135
+Deny from 13.83.167.137
+Deny from 13.83.167.140
+Deny from 13.83.167.143
+Deny from 13.94.66.175
+Deny from 13.94.67.46
+Deny from 13.94.69.150
+Deny from 13.94.98.109
+Deny from 149.154.161.213
+Deny from 149.154.161.221
+Deny from 149.154.161.236
+Deny from 149.154.161.250
+Deny from 149.50.101.213
+Deny from 149.50.102.51
+Deny from 149.56.150.230
+Deny from 149.56.150.27
+Deny from 149.56.160.187
+Deny from 149.56.44.47
+Deny from 149.88.104.9
+Deny from 20.15.133.174
+Deny from 20.15.133.175
+Deny from 20.15.133.191
+Deny from 20.161.75.211
+Deny from 20.171.207.115
+Deny from 20.171.207.130
+Deny from 20.171.207.156
+Deny from 20.171.207.231
+Deny from 20.171.207.234
+Deny from 20.171.207.24
+Deny from 20.171.207.241
+Deny from 20.171.207.255
+Deny from 20.171.207.7
+Deny from 20.171.207.89
+Deny from 20.172.36.113
+Deny from 20.188.232.31
+Deny from 20.191.45.212
+Deny from 20.245.167.190
+Deny from 20.37.126.100
+Deny from 20.97.189.101
+Deny from 20.97.189.104
+Deny from 216.131.105.246
+Deny from 216.131.110.210
+Deny from 216.131.110.214
+Deny from 216.131.112.242
+Deny from 216.131.68.240
+Deny from 216.225.201.98
+Deny from 216.244.66.238
+Deny from 216.244.66.243
+Deny from 52.11.171.106
+Deny from 52.125.141.22
+Deny from 52.138.138.13
+Deny from 52.140.228.69
+Deny from 52.156.77.147
+Deny from 52.156.77.150
+Deny from 52.159.249.101
+Deny from 52.159.249.106
+Deny from 52.159.249.98
+Deny from 52.164.121.210
+Deny from 52.164.123.90
+Deny from 52.164.201.233
+Deny from 52.164.218.25
+Deny from 52.164.219.202
+Deny from 52.167.144.139
+Deny from 52.167.144.141
+Deny from 52.167.144.142
+Deny from 52.167.144.145
+Deny from 52.167.144.146
+Deny from 52.167.144.149
+Deny from 52.167.144.150
+Deny from 52.167.144.161
+Deny from 52.167.144.166
+Deny from 52.167.144.167
+Deny from 52.167.144.168
+Deny from 52.167.144.169
+Deny from 52.167.144.170
+Deny from 52.167.144.171
+Deny from 52.167.144.172
+Deny from 52.167.144.173
+Deny from 52.167.144.174
+Deny from 52.167.144.179
+Deny from 52.167.144.18
+Deny from 52.167.144.180
+Deny from 52.167.144.182
+Deny from 52.167.144.184
+Deny from 52.167.144.185
+Deny from 52.167.144.186
+Deny from 52.167.144.189
+Deny from 52.167.144.19
+Deny from 52.167.144.190
+Deny from 52.167.144.192
+Deny from 52.167.144.194
+Deny from 52.167.144.196
+Deny from 52.167.144.20
+Deny from 52.167.144.200
+Deny from 52.167.144.203
+Deny from 52.167.144.205
+Deny from 52.167.144.209
+Deny from 52.167.144.21
+Deny from 52.167.144.212
+Deny from 52.167.144.213
+Deny from 52.167.144.214
+Deny from 52.167.144.216
+Deny from 52.167.144.219
+Deny from 52.167.144.22
+Deny from 52.167.144.225
+Deny from 52.167.144.226
+Deny from 52.167.144.235
+Deny from 52.167.144.238
+Deny from 52.169.83.211
+Deny from 52.174.244.126
+Deny from 52.174.29.70
+Deny from 52.200.93.170
+Deny from 52.203.68.145
+Deny from 52.204.253.129
+Deny from 52.206.62.25
+Deny from 52.215.79.110
+Deny from 52.225.75.221
+Deny from 52.3.127.170
+Deny from 52.31.244.185
+Deny from 52.34.241.26
+Deny from 52.34.76.65
+Deny from 52.41.249.217
+Deny from 52.44.229.124
+Deny from 52.45.92.83
+Deny from 52.48.38.139
+Deny from 52.7.33.248
+Deny from 52.87.44.246
+	
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	
+	RewriteCond %{HTTP_HOST} ^mpi\.ru\.com$ [NC]
+	RewriteRule ^(.*)$ https://mpi-corp.ru/$1 [R=301,L]
+	
+	RewriteCond %{HTTP_HOST} ^mpi\.test-1pos\.ru$ [NC]
+	RewriteRule ^(.*)$ https://mpi-corp.ru/$1 [R=301,L]
+	
+	RewriteCond %{THE_REQUEST} \s[^?]*//
+	RewriteRule ^.*$ /$0 [R=301,L,NE]
+	
+	# Перенаправление с www на без www
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^ https://mpi-corp.ru%{REQUEST_URI} [L,R=301]
+
+	# Перенаправление на HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+    RewriteRule ^ https://mpi-corp.ru%{REQUEST_URI} [L,R=301]
+	
+	RewriteCond %{THE_REQUEST} ^.*/index\.php 
+	RewriteRule ^(.*)index.php$ /$1 [R=301,L] 
+	
+	RewriteRule ^niproducts https://mpi-corp.ru/ [R=301,L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d	
+	RewriteRule ^(.*)$ index.php?$1 [L]	
+</IfModule>

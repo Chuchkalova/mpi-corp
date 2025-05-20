@@ -629,7 +629,7 @@
 
         <h3>Заказать звонок</h3>
 
-        <form action="#" method="POST" id="form-call" class='ajax-form'>
+        <form action="#" method="POST" id="form-call2" class='ajax-form'>
 
           <div class="wrap-input">
 
@@ -665,7 +665,7 @@
 
           <div class="wrap-check">
 
-            <button>Заказать звонок</button>
+            <button type="submit">Заказать звонок</button>
 
             <p>Нажимая на кнопку «Заказать звонок» Вы даете согласие на <a href="<?= site_url('politic'); ?>" target='_blank'>обработку персональных данных</a></p>
 
@@ -769,7 +769,7 @@
 
           <div class="wrap-check">
 
-            <button>Заказать звонок</button>
+            <button type="submit">Заказать звонок</button>
 
             <p>Нажимая на кнопку «Заказать звонок» Вы даете согласие на <a href="<?= site_url('politic'); ?>" target='_blank'>обработку персональных данных</a></p>
 

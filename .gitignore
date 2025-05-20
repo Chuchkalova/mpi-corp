@@ -1,0 +1,29 @@
+# Исключаем все изображения
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.svg
+*.webp
+
+# Исключаем все видео
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.mkv
+*.flv
+*.webm
+
+
+*.txt
+*.xml
+
+
+# Исключаем все папки с именем images
+images/
+vendor/
+.default/
+upload/

@@ -177,6 +177,36 @@
     </div>
   </div>
 </section>
+<section class="triangle">
+    <div class="container">
+        <div class="wrap-triangle-form">
+            <div class="triangle-form-left">
+                <h4>консультация</h4>
+                <p>Не уверены, какое ПО вам нужно?<a href="#">Поможем разобраться!</a></p>
+            </div>
+            <div id="head">
+                <div class="eye" id="eye">
+                    <div class="pupil"></div>
+                </div>
+            </div>
+            <form action="#" class="triangle-form ajax-form" id="help-form">
+                <div class="wrap-input">
+                    <label>
+                        <input type="text" name="name">
+                        <span>Ваше имя</span>
+                    </label>
+                </div>
+                <div class="wrap-input">
+                    <input type="tel" name="phone" placeholder="+7 (9__) ___-__-__" required>
+                </div>
+                <div class="wrap-check">
+                    <p>Нажимая на кнопку «Заказать звонок» Вы даете согласие на <a href="#">обработку персональных данных</a></p>
+                    <button type="submit">Заказать звонок</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 <section class="et-hero-tabs">
   <h4>наши партнеры</h4>
   <div class="et-hero-tabs-container">
