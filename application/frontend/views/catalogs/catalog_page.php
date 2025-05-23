@@ -18,7 +18,11 @@
 
 		  <div class="dev-content-item" <?= empty($one_page)&&$i>3?"style='display:none;'":""; ?>>
 
-			<img src="<?= get_image('catalogs','file1',$item_one2['id']) ?>" alt="">
+              <?if ($item_one2['pid'] == 357) {?>
+                  <img src="<?= get_image('catalogs','file1',54422) ?>" alt="">
+              <?} else {?>
+                  <img src="<?= get_image('catalogs','file1',$item_one2['id']) ?>" alt="">
+              <?}?>
 
 			<div class="dev-content-item-info">
 
