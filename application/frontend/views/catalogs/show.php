@@ -4,7 +4,11 @@
   </svg>
 </div>
 <div class="popup-po-item">
-  <img src="<?= get_image('catalogs','file1',$item['id']) ?>" alt="">
+    <?if ($item['pid'] == 357) {?>
+        <img src="<?= get_image('catalogs','file1',54422) ?>" alt="">
+    <?} else {?>
+        <img src="<?= get_image('catalogs','file1',$item['id']) ?>" alt="">
+    <?}?>
   <div class="wrap-popup-po-item-info">
 	<h6><?= $item['name'] ?></h6>
 	<?= $item['short_text'] ?>
