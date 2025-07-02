@@ -80,7 +80,7 @@ class pages extends MY_ControllerTmpl {
 			$items2=$this->articles_model->get_page(array('is_show'=>1,'is_block'=>0,'pid'=>$item_one['id'],));
 			foreach($items2 as $item_one2){
 				$subitems[]=array(
-					'url'=>site_url("articles/show/".$item_one2['url']),
+					'url'=>site_url("articles/".$item_one2['url']),
 					'name'=>$item_one2['name'],
 				);
 			}

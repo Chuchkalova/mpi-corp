@@ -40,30 +40,30 @@ class home extends MY_ControllerTmpl {
 		$gallerys2=$this->gallerys_model->get_page(array('is_block'=>0,'is_show'=>1,'pid'=>2,),null,null,'order');
         $schema = '
         <script type="application/ld+json">
-        {
-         "@context": "https://schema.org";,
-         "@type": "Organization",
-         "name": "ООО «МЕНЕДЖМЕНТ ПРАЙВИТ ИНВЕСТМЕНТС»",
-         "url": "https://mpi-corp.ru";,
-         "logo": "https://mpi-corp.ru/imgs/logo-header.svg";,
-         "description": "Мы являемся ключевым партнером многих отечественных и зарубежных разработчиков программного обеспечения и изготовителей радиоэлектронного оборудования.",
-         "address": {
-           "@type": "PostalAddress",
-           "streetAddress": "пр. Ленина 5Л, оф. 503",
-           "addressLocality": "г. Екатеринбург",
-           "addressRegion": "Свердловская область",
-           "postalCode": "620014",
-           "addressCountry": "RU"
-         },
-         "contactPoint": {
-           "@type": "ContactPoint",
-           "telephone": "+7-800-234-17-14",
-           "contactType": "Главный телефон",
-           "areaServed": "RU",
-           "availableLanguage": "ru"
-         }
-        }
-        </script>
+			{
+			 "@context": "https://schema.org",
+			 "@type": "Organization",
+			 "name": "ООО «МЕНЕДЖМЕНТ ПРАЙВИТ ИНВЕСТМЕНТС»",
+			 "url": "https://mpi-corp.ru",
+			 "logo": "https://mpi-corp.ru/imgs/logo-header.svg",
+			 "description": "Мы являемся ключевым партнером многих отечественных и зарубежных разработчиков программного обеспечения и изготовителей радиоэлектронного оборудования.",
+			 "address": {
+			   "@type": "PostalAddress",
+			   "streetAddress": "пр. Ленина 5Л, оф. 503",
+			   "addressLocality": "г. Екатеринбург",
+			   "addressRegion": "Свердловская область",
+			   "postalCode": "620014",
+			   "addressCountry": "RU"
+			 },
+			 "contactPoint": {
+			   "@type": "ContactPoint",
+			   "telephone": "+7-800-234-17-14",
+			   "contactType": "Главный телефон",
+			   "areaServed": "RU",
+			   "availableLanguage": "ru"
+			 }
+			}
+		</script>
         ';
 			
 		$this->template->write_view('content_main', 'mains/home', array(

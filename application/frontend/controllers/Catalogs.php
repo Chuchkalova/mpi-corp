@@ -271,6 +271,11 @@ class catalogs extends MY_ControllerTmpl {
 				show_404('page_404');
 				return;
 			}
+		//	if($page_num>ceil($count/$on_page)){
+		//		header('HTTP/1.0 404 Not Found');
+		//		show_404('page_404');
+		//		return;
+		//	}
 			
 			$data['pager']=$this->catalogs_group_model->get_pager(site_url($url), $count['counter'], 2, $on_page);
 			$data['search']=$search;
@@ -502,9 +507,19 @@ class catalogs extends MY_ControllerTmpl {
 				}
 				
 				if(isset($new_counter)){
+					if($page_num>ceil($new_counter['counter']/$on_page)){
+						header('HTTP/1.0 404 Not Found');
+						show_404('page_404');
+						return;
+					}
 					$data['pager']=$this->catalogs_group_model->get_pager(site_url($item['url']), $new_counter['counter'], 2, $on_page);
 				}
 				else{
+					if($page_num>ceil($catalogs_count['counter']/$on_page)){
+						header('HTTP/1.0 404 Not Found');
+						show_404('page_404');
+						return;
+					}
 					$data['pager']=$this->catalogs_group_model->get_pager(site_url($item['url']), $catalogs_count['counter'], 2, $on_page);
 				}
 				
@@ -572,6 +587,12 @@ class catalogs extends MY_ControllerTmpl {
 						show_404('page_404');
 						return;
 					}
+					
+				//	if($page_num>ceil($count/$on_page)){
+				//		header('HTTP/1.0 404 Not Found');
+				//		show_404('page_404');
+				//		return;
+				//	}
 					
 					$data['pager']=$this->catalogs_group_model->get_pager(site_url($url), $count['counter'], 2, $on_page);
 					$data['search']=$search;

@@ -70,9 +70,6 @@
   <title><?= htmlspecialchars($meta_title); ?></title>
 
   <meta name="description" content="<?= htmlspecialchars($meta_description); ?>" />
-
-  <meta name="keywords" content="<?= $meta_keywords; ?>" />
-
   
 
   <? if($this->settings[3]){ ?>
@@ -88,6 +85,21 @@
 	<link rel="canonical" href="<?= $protocol; ?>://<?= $_SERVER['SERVER_NAME'].site_url($this->uri->segment(1)) ?>">
   <? } ?>
 <? if (isset($schema))echo $schema; ?>
+  <!-- Top.Mail.Ru counter -->
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3653306", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "tmr-code");
+</script>
+<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3653306;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+<!-- /Top.Mail.Ru counter -->
+
 </head>
 
 
@@ -123,8 +135,6 @@
           <div class="contact-header">
 
             <div class="contact-header-block desc-hid">
-
-              <!--<a href="<?= $top2; ?>" class="mail"><?= $top2; ?></a>-->
               <a href="mailto:sales@mpi-corp.ru" class="mail">sales@mpi-corp.ru</a>
 
               <? if($this->settings[5]){ ?><a href="<?= $this->settings[5]; ?>" class="telegram">Техподдержка (общая)</a><? } ?>
@@ -345,83 +355,7 @@
 
     <div class="footer-form-right">
 
-      <form action="#" class="footer-form ajax-form" id="footer-form">
-
-        <div class="wrap-input">
-
-          <label>
-
-            <input type="text" name="name" required>
-
-            <span>Ваше имя</span>
-
-          </label>
-
-        </div>
-
-        <div class="wrap-input">
-
-          <label>
-
-            <input type="text" name="org">
-
-            <span>Организация</span>
-
-          </label>
-
-        </div>
-
-        <div class="wrap-input">
-
-          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
-
-        </div>
-
-        <div class="wrap-input">
-
-          <label>
-
-            <input type="text" name="email" required>
-
-            <span>E-mail</span>
-
-          </label>
-
-        </div>
-
-        <div class="wrap-input">
-
-          <label>
-
-            <input type="text" name="city">
-
-            <span>Город</span>
-
-          </label>
-
-        </div>
-
-        <div class="wrap-input">
-
-          <label>
-
-            <input type="text" name='text'>
-
-            <span>Напишите, что Вас интересует</span>
-
-          </label>
-
-        </div>
-
-        <div class="wrap-check">
-
-          <p>Нажимая на кнопку «Отправить заявку» Вы даете согласие на <a href="<?= site_url('politic'); ?>" target='_blank'>обработку персональных данных</a></p>
-
-          <button type="submit">Отправить заявку</button>
-
-        </div>
-
-      </form>
+        <script data-b24-form="inline/21/z6rel0" data-skip-moving="true">(function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.ru/b26270930/crm/form/loader_21.js');</script>
 
     </div>
 
@@ -627,51 +561,12 @@
 
         </div>
 
-        <h3>Заказать звонок</h3>
-
-        <form action="#" method="POST" id="form-call2" class='ajax-form'>
-
-          <div class="wrap-input">
-
-            <label>
-
-              <input type="text" name="name" required>
-
-              <span>Ваше имя</span>
-
-            </label>
-
-          </div>
-
-          <div class="wrap-input">
-
-            <input type="tel" name="phone" placeholder="+7 (9__) ___-__-__" required>
-
-          </div>
-
-          <div class="wrap-input">
-
-            <label>
-
-              <input type="text" name='text'>
-
-              <span>Напишите, что Вас интересует</span>
-
-            </label>
-
-          </div>
-
-		  <input type='hidden' name='type' value='Заказать звонок'>
-
-          <div class="wrap-check">
-
-            <button type="submit">Заказать звонок</button>
-
-            <p>Нажимая на кнопку «Заказать звонок» Вы даете согласие на <a href="<?= site_url('politic'); ?>" target='_blank'>обработку персональных данных</a></p>
-
-          </div>
-
-        </form>
+        <script data-b24-form="inline/19/k7bbhg" data-skip-moving="true">
+        (function(w,d,u){
+        var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+        var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+        })(window,document,'https://cdn-ru.bitrix24.ru/b26270930/crm/form/loader_19.js');
+        </script>
 
       </div>
 
@@ -695,87 +590,12 @@
 
         </div>
 
-        <h3>Оставить заявку</h3>
-
-        <form action="#" method="POST" id="application-form" class='ajax-form'>
-
-          <div class="wrap-input">
-
-            <label>
-
-              <input type="text" name="name" required>
-
-              <span>Ваше имя</span>
-
-            </label>
-
-          </div>
-
-          <div class="wrap-input">
-
-            <label>
-
-              <input type="text" name="org" >
-
-              <span>Организация</span>
-
-            </label>
-
-          </div>
-
-          <div class="wrap-input">
-
-            <input type="tel" name="phone" placeholder="+7 (9__) ___-__-__" required>
-
-          </div>
-
-          <div class="wrap-input">
-
-            <label>
-
-              <input type="email" name="email" required>
-
-              <span>E-mail</span>
-
-            </label>
-
-          </div>
-
-          <div class="wrap-input">
-
-            <label>
-
-              <input type="text" name="city">
-
-              <span>Город</span>
-
-            </label>
-
-          </div>
-
-          <div class="wrap-input">
-
-            <label>
-
-              <input type="text" name='text'>
-
-              <span>Напишите, что Вас интересует</span>
-
-            </label>
-
-          </div>
-
-		  <input type='hidden' name='type' value='Оставить заявку'>
-
-          <div class="wrap-check">
-
-            <button type="submit">Заказать звонок</button>
-
-            <p>Нажимая на кнопку «Заказать звонок» Вы даете согласие на <a href="<?= site_url('politic'); ?>" target='_blank'>обработку персональных данных</a></p>
-
-          </div>
-
-        </form>
+    <script data-b24-form="inline/15/ztmjaq" data-skip-moving="true">
+    (function(w,d,u){
+    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://cdn-ru.bitrix24.ru/b26270930/crm/form/loader_15.js');
+    </script>
 
       </div>
 
@@ -957,6 +777,26 @@
       document.addEventListener('DOMContentLoaded', updateH1WithPageNumber);
 
   </script>
+  
+<div class="cookie-win" id="cookieWin">
+    <div class="cookie-win-content">
+    <p>Мы используем файлы cookie, чтобы делать сайт удобнее. Оставаясь на сайте, вы соглашаетесь на <a href="/soglasie" target="_blank">обработку данных</a> и с <a href="/politic" target="_blank">политикой</a> их использования</a></p>
+    <div class="coockie-btn" id="cookieBtn">Ок</div>
+    </div>
+</div>
+
+<script>
+const cookieWin = $("#cookieWin");
+    const cookieBtn = $("#cookieBtn");
+    if (!localStorage.getItem("cookieAccepted")) {
+        cookieWin.show();
+    }
+    cookieBtn.on("click", function () {
+        localStorage.setItem("cookieAccepted", "true");
+        cookieWin.hide();
+    });
+</script>	
+
 
 </body>
 

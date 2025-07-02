@@ -1,4 +1,17 @@
-<section class="developer-page third-template">
+<?php
+$current_page = $_SERVER['REQUEST_URI'];
+
+$page_classes = [
+    "/articles/vebinar_avtomatizaciya_vvoda_pervichnoj_buxgalterskoj_dokumentacii" => 'nlock-btn',
+    "/articles/vebinar_nanocad_geonics_modul_topoplan_naznachenie_i_vozmozhnosti_modulya" => 'nlock-btn',
+    "/articles/vebinar_nanocad_bim_sks_-_pervye_vazhnye_dejstviya_proektirovshhika_sozdanie_proekta" => 'nlock-btn',
+    "/articles/kak_zamenit_microsoft_visio_soxranit_sushhestvuyushhuyu_bazu_sxem_i_komfortno_prodolzhit_rabotu" => 'nlock-btn special_margin',
+    "/articles/nanocad_geonics__modul_topoplan" => 'nlock-btn-p'
+];
+
+$class = $page_classes[$current_page] ?? '';
+?>
+<section class="developer-page third-template ">
 
     <div class="container">
 
@@ -26,7 +39,7 @@
 
   </section>
 
-  <section class="event-item">
+  <section class="event-item <?php echo $class; ?>">
 
     <div class="container">
 
