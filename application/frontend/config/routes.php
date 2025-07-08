@@ -132,3 +132,25 @@ foreach($items as $item_one){
 	$route[$item_one['seo_url']]='catalogs/show_group/'.$item_one['url']."/1/".$item_one['seo_url'];
 	$route[$item_one['seo_url']."/(:num)"]='catalogs/show_group/'.$item_one['url']."/$1/".$item_one['seo_url'];
 }
+
+// Подкатегории внутри категории astralinux
+$query_res = $db->query("SELECT id FROM catalogs_group WHERE url='astralinux' AND is_block=0 AND is_show=1");
+$row = $query_res->row_array();
+if (!empty($row)) {
+    $astralinux_id = $row['id'];
+
+    $query_res_lvl1 = $db->query("SELECT id, url FROM catalogs_group WHERE is_block=0 AND is_show=1 AND pid = ".$db->escape($astralinux_id));
+    $level1 = $query_res_lvl1->result_array();
+
+    foreach ($level1 as $item_one) {
+        $route['astralinux/'.$item_one['url']] = 'catalogs/show_group/'.$item_one['url'];
+
+        $query_res_lvl2 = $db->query("SELECT url FROM catalogs_group WHERE is_block=0 AND is_show=1 AND pid = ".$db->escape($item_one['id']));
+        $level2 = $query_res_lvl2->result_array();
+        foreach ($level2 as $sub_item) {
+            $route['astralinux/'.$item_one['url'].'/'.$sub_item['url']] = 'catalogs/show_group/'.$sub_item['url'];
+        }
+    }
+}
+
+
