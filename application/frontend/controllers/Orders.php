@@ -6,7 +6,7 @@ class orders extends MY_ControllerTmpl {
 
 	public function add_cart_ajax($item_id, $count=1){	
 		$this->orders_model->add_cart($item_id, $count);
-		echo json_encode((object)$this->orders_model->cart_info());
+		echo json_encode((object)$this->orders_model->cart_info($item_id, $count));
 	}
 	
 	public function update_cart_ajax(){
@@ -87,9 +87,13 @@ class orders extends MY_ControllerTmpl {
 		if($this->input->post('email')){
 			$this->forms_model->email('Заказ на сайте '.$_SERVER["SERVER_NAME"], $this->input->post('email'), $email_text);
 		}
+
+        $items=$this->orders_model->get_cart_items();
+
 		$this->cart->destroy();
-		
-		redirect("/mains/show/orders_success");
+
+        echo json_encode($items);
+		//redirect("/mains/show/orders_success");
 	}
 	
 }

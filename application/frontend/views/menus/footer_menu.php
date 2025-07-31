@@ -24,6 +24,7 @@ foreach ($items[0]['children'] as $item_one) {
         <?php if ($i == 2): ?>
             <div class="off-canal">Официальный канал</div>
             <a class="icon-r" href="https://rutube.ru/channel/42051824/videos/"><img class="icon-r-effect" src="/dir_images/rutube-icon.svg"></a>
+            <a class="icon-r" href="https://vk.com/mpi_corp" style="margin-left: 20px;"><img class="icon-r-effect" src="/dir_images/vk.svg"></a>
         <?php endif; ?>
     </div>
 <?php
