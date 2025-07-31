@@ -80,7 +80,19 @@
 print_r ($item_one2);
 ?>
 </pre> -->
-					<? if($item_one2['id']!= 153 && $item_one2['id'] != 55 && $item_one2['id'] != 146 && $item_one2['id'] != 290 && $item_one2['id'] != 65 && $item_one2['id'] != 56 && $item_one2['id'] != 201 && $item_one2['id'] != 199){ ?>
+					<? if(
+						$item_one2['id'] != 153
+					&& $item_one2['id'] != 154
+					&& $item_one2['id'] != 358
+					&& $item_one2['id'] != 55 
+					&& $item_one2['id'] != 373
+					&& $item_one2['id'] != 146 
+					&& $item_one2['id'] != 290 
+					&& $item_one2['id'] != 65 
+					&& $item_one2['id'] != 56 
+					&& $item_one2['id'] != 201 
+					&& $item_one2['id'] != 199 
+					){ ?>
 
 						<!-- <a href="<?= site_url($item_one2['url']); ?>" class="po-item blob-item"> -->
 							<a href="https://mpi.ru.com/promyshlennoe_oborudovanie" id="<? $item_one2['id'] ?>" class="po-item aaq blob-item">
@@ -88,7 +100,7 @@ print_r ($item_one2);
 					else
 					{ ?>
 						<!-- <a href="https://mpi.ru.com/promyshlennoe_oborudovanie" class="po-item blob-item"> -->
-							<a href="<?= site_url($item_one2['url']); ?>" class="po-item blob-item">
+							<a href="<?= site_url($item_one2['url']); ?>" class="po-item blob-item mau2">
 						<!-- <div class="po-item blob-item"> -->
 
 					<? } ?>
@@ -123,7 +135,7 @@ print_r ($item_one2);
 
 
 
-	  <?/*div class="po-block">
+	  <div class="po-block">
 
 		<div class="po-block-title">
 
@@ -171,7 +183,7 @@ print_r ($item_one2);
 
 	  </div>
 
-    </div*/?>
+    </div>
 
   </section>
 

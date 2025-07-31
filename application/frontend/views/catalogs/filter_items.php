@@ -827,4 +827,32 @@
 
   </div>
 
-  
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.location.pathname === '/gipro1') {
+            const tabList = document.querySelector('.developer-tab-list.aaq1 ul');
+            if (!tabList) return;
+
+            const tabs = tabList.querySelectorAll('li');
+            if (tabs.length < 2) return;
+
+            // Меняем порядок: второй перед первым
+            tabList.insertBefore(tabs[1], tabs[0]);
+
+            // Снимаем curent со всех
+            tabs.forEach(tab => tab.classList.remove('curent'));
+
+            // Добавляем curent первому
+            tabList.querySelector('li').classList.add('curent');
+
+            // Даем небольшой таймаут, чтобы внутренние скрипты "успели отработать"
+            setTimeout(() => {
+                // Программно вызываем клик по первой вкладке
+                const firstTabLink = tabList.querySelector('li.curent a');
+                if (firstTabLink) {
+                    firstTabLink.click();
+                }
+            }, 50);
+        }
+    });
+</script>

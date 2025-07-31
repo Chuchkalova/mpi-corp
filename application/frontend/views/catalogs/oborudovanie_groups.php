@@ -99,7 +99,7 @@
 print_r ($item_one);
 ?>
 </pre> -->
-				  <? if($item_one['id']!= 153 && $item_one['id'] != 55 && $item_one['id'] != 146  && $item_one['id'] != 290 && $item_one['id'] != 65 && $item_one['id'] != 56 && $item_one['id'] != 201 && $item_one['id'] != 199 && $item_one['id'] != 373 ){ ?>
+				  <? if($item_one['id']!= 153 && $item_one['id'] != 55 && $item_one['id'] != 146  && $item_one['id'] != 290 && $item_one['id'] != 65 && $item_one['id'] != 56 && $item_one['id'] != 201 && $item_one['id'] != 199 && $item_one['id'] != 373 && $item_one['id'] != 154 && $item_one['id'] != 374 ){ ?>
            <a href="https://mpi.ru.com/promyshlennoe_oborudovanie">
               <!--<a href="<?= site_url($item_one['url']); ?>"> -->
             <? }

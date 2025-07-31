@@ -84,7 +84,7 @@
           <div class="wrap-search-items">
 
 			<? foreach($items as $item_one){ ?>
-
+        <!-- show1 -->
 				<div class="search-item blob-item">
 
 				  <a href="<?= site_url($item_one['url']); ?>">

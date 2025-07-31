@@ -57,11 +57,11 @@ class catalogs extends MY_ControllerTmpl {
 
             $on_page=5;
             $catalogs_count=$this->catalogs_model->sql_query_one("
-				select count(distinct(cg.id)) as counter
-				from catalogs c
-				inner join catalogs_group cg on c.pid=cg.id
-				where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).") $sql
-			");
+                select count(distinct(cg.id)) as counter
+                from catalogs c
+                inner join catalogs_group cg on c.pid=cg.id
+                where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).") $sql
+            ");
             $limit = "limit 0, $on_page";
             if($catalogs_count['counter']==1){
                 $limit = "";
@@ -69,36 +69,36 @@ class catalogs extends MY_ControllerTmpl {
                 $data['one_page']=1;
             }
             $items=$this->catalogs_group_model->sql_query_array("
-				select cg.* 
-				from catalogs c 
-				inner join catalogs_group cg on c.pid=cg.id
-				where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).") $sql
-				group by cg.id
-				order by cg.`order`
-				$limit
-			");
+                select cg.* 
+                from catalogs c 
+                inner join catalogs_group cg on c.pid=cg.id
+                where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).") $sql
+                group by cg.id
+                order by cg.`order`
+                $limit
+            ");
             foreach($items as &$item_one){
                 if($catalogs_count['counter']==1){
                     $new_counter=$this->catalogs_model->sql_query_one("
-						select count(*) as counter
-						from catalogs c
-						where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-					");
+                        select count(*) as counter
+                        from catalogs c
+                        where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                    ");
                     $item_one['items']=$this->catalogs_model->sql_query_array("
-						select c.*
-						from catalogs c
-						where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-						order by c.price, c.order
-						limit 0, $on_page
-					");
+                        select c.*
+                        from catalogs c
+                        where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                        order by c.price, c.order
+                        limit 0, $on_page
+                    ");
                 }
                 else{
                     $item_one['items']=$this->catalogs_model->sql_query_array("
-						select c.*
-						from catalogs c
-						where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-						order by c.price, c.order
-					");
+                        select c.*
+                        from catalogs c
+                        where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                        order by c.price, c.order
+                    ");
                 }
             }
         }
@@ -108,12 +108,12 @@ class catalogs extends MY_ControllerTmpl {
 
             $on_page=5;
             $catalogs_count=$this->catalogs_model->sql_query_one("
-				select count(distinct(cg.id)) as counter
-				from catalogs c
-				inner join catalogs_products_types cpt on cpt.catalogs_id = c.id and cpt.products_types_id = '{$item['id']}'
-				inner join catalogs_group cg on c.pid=cg.id
-				where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 $sql
-			");
+                select count(distinct(cg.id)) as counter
+                from catalogs c
+                inner join catalogs_products_types cpt on cpt.catalogs_id = c.id and cpt.products_types_id = '{$item['id']}'
+                inner join catalogs_group cg on c.pid=cg.id
+                where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 $sql
+            ");
             $limit = "limit 0, $on_page";
             if($catalogs_count['counter']==1){
                 $limit = "";
@@ -121,38 +121,38 @@ class catalogs extends MY_ControllerTmpl {
                 $data['one_page']=1;
             }
             $items=$this->catalogs_group_model->sql_query_array("
-				select cg.* 
-				from catalogs c 
-				inner join catalogs_products_types cpt on cpt.catalogs_id = c.id and cpt.products_types_id = '{$item['id']}'
-				inner join catalogs_group cg on c.pid=cg.id
-				where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 $sql
-				group by cg.id
-				order by cg.`order`
-				$limit
-			");
+                select cg.* 
+                from catalogs c 
+                inner join catalogs_products_types cpt on cpt.catalogs_id = c.id and cpt.products_types_id = '{$item['id']}'
+                inner join catalogs_group cg on c.pid=cg.id
+                where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 $sql
+                group by cg.id
+                order by cg.`order`
+                $limit
+            ");
             foreach($items as &$item_one){
                 if($catalogs_count['counter']==1){
                     $new_counter=$this->catalogs_model->sql_query_one("
-						select count(*) as counter
-						from catalogs c
-						where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-					");
+                        select count(*) as counter
+                        from catalogs c
+                        where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                    ");
                     $item_one['items']=$this->catalogs_model->sql_query_array("
-						select c.*
-						from catalogs c
-						where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-						order by c.price, c.order
-						limit 0, $on_page
-					");
+                        select c.*
+                        from catalogs c
+                        where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                        order by c.price, c.order
+                        limit 0, $on_page
+                    ");
                 }
                 else{
                     $item_one['items']=$this->catalogs_model->sql_query_array("
-						select c.*
-						from catalogs c
-						inner join catalogs_products_types cpt on cpt.catalogs_id = c.id and cpt.products_types_id = '{$item['id']}'
-						where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-						order by c.price, c.order
-					");
+                        select c.*
+                        from catalogs c
+                        inner join catalogs_products_types cpt on cpt.catalogs_id = c.id and cpt.products_types_id = '{$item['id']}'
+                        where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                        order by c.price, c.order
+                    ");
                 }
             }
         }
@@ -190,7 +190,6 @@ class catalogs extends MY_ControllerTmpl {
 
     public function show_group($url="",$page_num=1, $seo_url=""){
         $item=$this->catalogs_group_model->get_by_fields(array("url"=>$url, 'is_block'=>0, 'is_show'=>1,));
-
         if(!$item['id']){
             header('HTTP/1.0 404 Not Found');
             show_404('page_404');
@@ -261,23 +260,22 @@ class catalogs extends MY_ControllerTmpl {
             $count=$this->catalogs_group_model->sql_query_one("select count(*) as counter from catalogs_group where is_show=1 and is_block=0 and pid='{$item['id']}' $sql");
             $start=($page_num-1)*$on_page;
             $data['items']=$this->catalogs_group_model->sql_query_array("
-				select * 
-				from catalogs_group 
-				where is_show=1 and is_block=0 and pid='{$item['id']}' $sql
-				order by `order`
-				limit $start, $on_page
-			");
-
+                select * 
+                from catalogs_group 
+                where is_show=1 and is_block=0 and pid='{$item['id']}' $sql
+                order by `order`
+                limit $start, $on_page
+            ");
             if($page_num!=1&&!count($data['items'])){
                 header('HTTP/1.0 404 Not Found');
                 show_404('page_404');
                 return;
             }
-            //	if($page_num>ceil($count/$on_page)){
-            //		header('HTTP/1.0 404 Not Found');
-            //		show_404('page_404');
-            //		return;
-            //	}
+            //  if($page_num>ceil($count/$on_page)){
+            //      header('HTTP/1.0 404 Not Found');
+            //      show_404('page_404');
+            //      return;
+            //  }
 
             $data['pager']=$this->catalogs_group_model->get_pager(site_url($url), $count['counter'], 2, $on_page);
             $data['search']=$search;
@@ -295,12 +293,12 @@ class catalogs extends MY_ControllerTmpl {
                 $group_one['level2']=array();
                 if(count($pids)&&!$group_one['is_level2']){
                     $group_one['level2']=$this->catalogs_group_model->sql_query_array("
-						select * 
-						from catalogs_group 
-						where is_show=1 and is_block=0 and pid IN (".implode(',',$pids).")
-						order by `order`
-						limit 9
-					");
+                        select * 
+                        from catalogs_group 
+                        where is_show=1 and is_block=0 and pid IN (".implode(',',$pids).")
+                        order by `order`
+                        limit 9
+                    ");
                     foreach($group_one['level2'] as $item_one2){
                         $pids_level2[]=$item_one2['id'];
                     }
@@ -310,24 +308,24 @@ class catalogs extends MY_ControllerTmpl {
             $data['types_groups']=array();
             if(count($pids_level2)){
                 $data['types_groups']=$this->catalogs_group_model->sql_query_array("
-					select * 
-					from catalogs_group 
-					where is_show=1 and is_block=0 and id IN (".implode(',',$pids_level2).")
-					order by `order`
-					limit 9
-				");
+                    select * 
+                    from catalogs_group 
+                    where is_show=1 and is_block=0 and id IN (".implode(',',$pids_level2).")
+                    order by `order`
+                    limit 9
+                ");
             }
 
             $pids_all=$this->catalogs_group_model->get_recoursive_children(5);
             $data['types']=$this->catalogs_group_model->sql_query_array("
-				select pt.* 
-				from catalogs c
-				inner join catalogs_products_types cpt on cpt.catalogs_id=c.id
-				inner join products_types pt on pt.id=cpt.products_types_id 
-				where c.is_show=1 and c.is_block=0 and pt.is_show=1 and pt.is_block=0 and c.pid IN (".implode(',',$pids_all).")
-				group by pt.id
-				order by pt.`order`
-			");
+                select pt.* 
+                from catalogs c
+                inner join catalogs_products_types cpt on cpt.catalogs_id=c.id
+                inner join products_types pt on pt.id=cpt.products_types_id 
+                where c.is_show=1 and c.is_block=0 and pt.is_show=1 and pt.is_block=0 and c.pid IN (".implode(',',$pids_all).")
+                group by pt.id
+                order by pt.`order`
+            ");
 
             $this->load->model('texts_model');
             $this->load->model('texts_group_model');
@@ -520,8 +518,7 @@ class catalogs extends MY_ControllerTmpl {
         }
         else{
             $count_items=$this->catalogs_model->get_count(array("pid"=>$item['id'], 'is_block'=>0, 'is_show'=>1,));
-
-            if($count_items>0 ){
+            if($count_items>0){
                 header('HTTP/1.0 404 Not Found');
                 show_404('page_404');
                 return;
@@ -535,11 +532,11 @@ class catalogs extends MY_ControllerTmpl {
             $counter=0;
             if(count($level1)){
                 $catalogs_count=$this->catalogs_model->sql_query_one("
-					select count(*) as counter
-					from catalogs c
-					inner join catalogs_group cg on c.pid=cg.id
-					where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".$item['id'].")
-				");
+                    select count(*) as counter
+                    from catalogs c
+                    inner join catalogs_group cg on c.pid=cg.id
+                    where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).")
+                ");
                 $counter=$catalogs_count['counter'];
             }
 
@@ -556,29 +553,29 @@ class catalogs extends MY_ControllerTmpl {
                 $data['gallerys']=$this->gallerys_model->get_page(array('is_show'=>1,'is_block'=>0,'pid'=>$item['gallerys_id'],),null,null,'order');
 
                 $data['products_types']=$this->catalogs_model->sql_query_array("
-					select pt.*
-					from catalogs c
-					inner join catalogs_group cg on c.pid=cg.id
-					inner join catalogs_products_types cpt on cpt.catalogs_id=c.id
-					inner join products_types pt on cpt.products_types_id = pt.id
-					where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".$item['id'].")
-					group by pt.id
-					order by pt.order
-				");
+                    select pt.*
+                    from catalogs c
+                    inner join catalogs_group cg on c.pid=cg.id
+                    inner join catalogs_products_types cpt on cpt.catalogs_id=c.id
+                    inner join products_types pt on cpt.products_types_id = pt.id
+                    where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).")
+                    group by pt.id
+                    order by pt.order
+                ");
 
                 $data['types']=array();
 
                 $types=$this->catalogs_model->sql_query_array("
-					select t.name, t.id, tg.name as group_name, tg.id as group_id
-					from catalogs c
-					inner join catalogs_group cg on c.pid=cg.id
-					inner join catalog_types ct on ct.item_id=c.id
-					inner join types t on t.id=ct.type_id
-					inner join types_group tg on tg.id=t.pid
-					where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".$item['id'].") and tg.is_block=0 and t.is_block=0
-					group by t.id
-					order by tg.order, tg.id,t.order, t.name					
-				");
+                    select t.name, t.id, tg.name as group_name, tg.id as group_id
+                    from catalogs c
+                    inner join catalogs_group cg on c.pid=cg.id
+                    inner join catalog_types ct on ct.item_id=c.id
+                    inner join types t on t.id=ct.type_id
+                    inner join types_group tg on tg.id=t.pid
+                    where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).") and tg.is_block=0 and t.is_block=0
+                    group by t.id
+                    order by tg.order, tg.id,t.order, t.name                    
+                ");
                 $prev_type_id=0;
                 $this->load->model('seos_model');
                 foreach($types as $item_one){
@@ -604,11 +601,11 @@ class catalogs extends MY_ControllerTmpl {
                 }
 
                 $data['min_max']=$this->catalogs_model->sql_query_one("
-					select min(c.price) as min, max(c.price) as max
-					from catalogs c
-					inner join catalogs_group cg on c.pid=cg.id
-					where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".$item['id'].")
-				");
+                    select min(c.price) as min, max(c.price) as max
+                    from catalogs c
+                    inner join catalogs_group cg on c.pid=cg.id
+                    where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).")
+                ");
 
 
                 $filters=array();
@@ -644,11 +641,11 @@ class catalogs extends MY_ControllerTmpl {
 
                 $on_page=5;
                 $catalogs_count=$this->catalogs_model->sql_query_one("
-					select count(distinct(cg.id)) as counter
-					from catalogs c
-					inner join catalogs_group cg on c.pid=cg.id
-					where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".$item['id'].") $sql
-				");
+                    select count(distinct(cg.id)) as counter
+                    from catalogs c
+                    inner join catalogs_group cg on c.pid=cg.id
+                    where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).") $sql
+                ");
                 $start=($page_num-1)*$on_page;
                 $limit = "limit $start, $on_page";
                 if($catalogs_count['counter']==1){
@@ -659,36 +656,36 @@ class catalogs extends MY_ControllerTmpl {
                 }
 
                 $data['items']=$this->catalogs_group_model->sql_query_array("
-					select cg.* 
-					from catalogs c 
-					inner join catalogs_group cg on c.pid=cg.id
-					where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".$item['id'].") $sql
-					group by cg.id
-					order by cg.`order`
-					$limit
-				");
+                    select cg.* 
+                    from catalogs c 
+                    inner join catalogs_group cg on c.pid=cg.id
+                    where cg.is_block=0 and cg.is_show=1 and c.is_block=0 and c.is_show=1 and c.pid IN(".implode(',',$level1).") $sql
+                    group by cg.id
+                    order by cg.`order`
+                    $limit
+                ");
                 foreach($data['items'] as &$item_one){
                     if($catalogs_count['counter']==1){
                         $new_counter=$this->catalogs_model->sql_query_one("
-							select count(*) as counter
-							from catalogs c
-							where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-						");
+                            select count(*) as counter
+                            from catalogs c
+                            where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                        ");
                         $item_one['items']=$this->catalogs_model->sql_query_array("
-							select c.*
-							from catalogs c
-							where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-							order by c.price, c.order
-							limit $start, $on_page
-						");
+                            select c.*
+                            from catalogs c
+                            where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                            order by c.price, c.order
+                            limit $start, $on_page
+                        ");
                     }
                     else{
                         $item_one['items']=$this->catalogs_model->sql_query_array("
-							select c.*
-							from catalogs c
-							where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
-							order by c.price, c.order
-						");
+                            select c.*
+                            from catalogs c
+                            where is_block=0 and is_show=1 and pid='{$item_one['id']}' $sql
+                            order by c.price, c.order
+                        ");
                     }
                 }
 
@@ -713,7 +710,6 @@ class catalogs extends MY_ControllerTmpl {
                 $this->template->write('css','<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.css"><link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>');
             }
             else{
-
                 $parent=$this->catalogs_group_model->get_by_id($item['pid']);
                 $i=0;
                 while($parent['pid']!=0&&$i<10){
@@ -761,12 +757,12 @@ class catalogs extends MY_ControllerTmpl {
                         $count=$this->catalogs_group_model->sql_query_one("select count(*) as counter from catalogs_group where is_show=1 and is_block=0 and pid IN(".implode(',',$pids2).") $sql");
                         $start=($page_num-1)*$on_page;
                         $data['items']=$this->catalogs_group_model->sql_query_array("
-							select * 
-							from catalogs_group 
-							where is_show=1 and is_block=0 and pid IN(".implode(',',$pids2).") $sql
-							order by `order`
-							limit $start, $on_page
-						");
+                            select * 
+                            from catalogs_group 
+                            where is_show=1 and is_block=0 and pid IN(".implode(',',$pids2).") $sql
+                            order by `order`
+                            limit $start, $on_page
+                        ");
                     }
                     if($page_num!=1&&!count($data['items'])){
                         header('HTTP/1.0 404 Not Found');
@@ -774,11 +770,11 @@ class catalogs extends MY_ControllerTmpl {
                         return;
                     }
 
-                    //	if($page_num>ceil($count/$on_page)){
-                    //		header('HTTP/1.0 404 Not Found');
-                    //		show_404('page_404');
-                    //		return;
-                    //	}
+                    //  if($page_num>ceil($count/$on_page)){
+                    //      header('HTTP/1.0 404 Not Found');
+                    //      show_404('page_404');
+                    //      return;
+                    //  }
 
                     $data['pager']=$this->catalogs_group_model->get_pager(site_url($url), $count['counter'], 2, $on_page);
                     $data['search']=$search;
