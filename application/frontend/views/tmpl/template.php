@@ -128,8 +128,14 @@ _tmr.push({id: "3653306", type: "pageView", start: (new Date()).getTime()});
 
           <div class="wrap-nav">
 
-			<?= $menu1; ?>            
-
+			<?= $menu1; ?>
+              <form id="search-form" class="search-header" action="/search" method="get" autocomplete="off">
+                  <div class="search-box">
+                      <input type="text" name="q" id="search-input" placeholder="Введите название товара или категории..." value="<?= isset($query) ? htmlspecialchars($query) : '' ?>" />
+                      <button type="submit">Поиск</button>
+                      <div id="search-suggestions" class="suggestions-box"></div>
+                  </div>
+              </form>
           </div>
 
           <div class="contact-header">
@@ -795,7 +801,61 @@ const cookieWin = $("#cookieWin");
         localStorage.setItem("cookieAccepted", "true");
         cookieWin.hide();
     });
-</script>	
+</script>
+  <script>
+      $(document).ready(function(){
+          $("#search-input").on("keyup", function(){
+              let q = $(this).val();
+
+              if(q.length < 2){
+                  $("#search-suggestions").hide();
+                  return;
+              }
+
+              $.getJSON("/search/ajax", {q: q}, function(data){
+                  let html = "";
+
+                  if(data.categories.length > 0){
+                      html += "<strong>Категории</strong><ul>";
+                      $.each(data.categories, function(i, cat){
+                          html += `<li>
+                    <a href="/${cat.url}">
+                        ${cat.name}
+                    </a>
+                </li>`;
+                      });
+                      html += "</ul>";
+                  }
+
+                  if(data.products.length > 0){
+                      html += "<strong>Товары</strong><ul>";
+                      $.each(data.products, function(i, prod){
+                          html += `<li>
+                    <a href="/${prod.category_url}?product_id=${prod.id}">
+                        <div class="product-name">${prod.name}</div>
+                        <div class="product-price">${prod.price} ₽</div>
+                    </a>
+                </li>`;
+                      });
+                      html += "</ul>";
+                  }
+
+                  if(html === ""){
+                      html = "<div style='padding:8px;'>Ничего не найдено</div>";
+                  }
+
+                  $("#search-suggestions").html(html).show();
+              });
+          });
+
+          // Скрываем подсказки при клике вне формы
+          $(document).click(function(e){
+              if(!$(e.target).closest("#search-form").length){
+                  $("#search-suggestions").hide();
+              }
+          });
+      });
+  </script>
 
 
 </body>

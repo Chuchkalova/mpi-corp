@@ -153,4 +153,7 @@ if (!empty($row)) {
     }
 }
 
+$route['search'] = 'search/index';
+$route['search/ajax'] = 'search/ajax';
+
 

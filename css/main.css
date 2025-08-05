@@ -11425,3 +11425,163 @@ display: none;
 
 
 
+
+/* Поисковая форма */
+.search-box {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+#search-input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px 0 0 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+#search-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 4px 12px rgba(74,144,226,0.2);
+}
+
+/* Подсказки */
+.suggestions-box {
+    position: absolute;
+    top: 52px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    width: calc(100% - 2px);
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 999;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.suggestions-box strong {
+    margin-left: 15px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.suggestions-box ul { margin: 0; padding: 0; list-style: none; }
+.suggestions-box li {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    font-size: 15px;
+}
+.suggestions-box li:hover {
+    background: #f5f8ff;
+}
+.suggestions-box li a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Списки */
+.result-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.result-list li {
+    margin-bottom: 10px;
+}
+.result-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.result-list a:hover {
+    background: #f5f8ff;
+    border-color: #4a90e2;
+    box-shadow: 0 4px 12px rgba(74,144,226,0.15);
+    transform: translateY(-2px);
+}
+
+/* Для товаров */
+.product-name {
+    font-weight: 500;
+}
+.product-price {
+    color: #4a90e2;
+    font-weight: 700;
+}
+
+/* Нет результатов */
+.no-results {
+    font-size: 18px;
+    color: #888;
+    margin-top: 30px;
+}
+
+.search-header {
+    margin-bottom: 0px;
+    padding-left: 20px;
+    z-index: 8;
+}
+
+.search-header .search-box {
+    margin-bottom: 0px;
+}
+
+.search-header #search-input {
+    width: 100%;
+    padding: 5px 18px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-header button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background: #ef733b;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-header .suggestions-box {
+    position: absolute;
+    top: 33px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    width: calc(100% - 2px);
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 999;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.wrap-nav nav {
+    z-index: 9;
+    position: relative;
+}
+
+

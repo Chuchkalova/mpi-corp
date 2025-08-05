@@ -796,13 +796,19 @@ $('.dev-filter-section h5').on('click', function() {
       console.error("Ошибка при выполнении промиса: ", error);
     });
   });
-  
-  
-  
-  $(document).on('click', '.popup-close, .popup-back-close-btn', function() {
-    $(this).closest('.popup').removeClass('active');
-    $("body, html").removeClass('overflow');
-  });
+
+    $(document).on('click', '.popup-close, .popup-back-close-btn', function() {
+        $(this).closest('.popup').removeClass('active');
+        $("body, html").removeClass('overflow');
+
+        // Убираем только product_id из URL, не трогая остальные параметры
+        const url = new URL(window.location.href);
+        if (url.searchParams.has('product_id')) {
+            url.searchParams.delete('product_id');
+            window.history.replaceState({}, '', url.pathname + (url.search ? '?' + url.searchParams.toString() : '') + window.location.hash);
+        }
+    });
+
   if ($(window).width() < 1200) {
     let currentIndex = 0;
     const interval = 8000;
@@ -2135,18 +2141,30 @@ $(document).on('click', '#po .counter-minus, #po .counter-plus', function() {
         input.val(count);
     }
 });
-function openCatalogPopup(resolve, data){
-	$.ajax({
-      url: "/catalogs/show",
-      type: 'POST',
-      data: {
-		catalogs_id:data['catalogs_id']
-	  },
-      success: function(result) {
-        $('#po .popup-content').html(result);
-      }
+function openCatalogPopup(resolve, data) {
+    console.log('Вызвана функция openCatalogPopup');
+    console.log('Аргумент resolve:', resolve);
+    console.log('Аргумент data:', data);
+
+    $.ajax({
+        url: "/catalogs/show",
+        type: 'POST',
+        data: {
+            catalogs_id: data['catalogs_id']
+        },
+        success: function(result) {
+            $('#po .popup-content').html(result);
+            console.log('Попап контент обновлён');
+
+            if (typeof resolve === 'function') {
+                console.log('Вызываю resolve() для открытия попапа');
+                resolve();
+            } else {
+                console.log('resolve нет — открываю попап вручную');
+                $('#po').addClass('open');  // <--- Заменить на твою логику открытия попапа
+            }
+        }
     });
-	return resolve;
 }
 function initializeSlider() {
   if ($('.about-slider').hasClass('slick-initialized')) {
@@ -2156,4 +2174,21 @@ function initializeSlider() {
 
 $(window).on('resize', function() {
   // initializeSlider();
+});
+
+$(document).ready(function(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('product_id');
+    console.log('URL параметр product_id:', productId);
+
+    if (productId) {
+        console.log('Найден product_id, ждём 500ms перед открытием попапа');
+        setTimeout(function() {
+            openCatalogPopup(function() {
+                $('#po').addClass('open active');
+            }, { popup: 'po', callback: 'openCatalogPopup', catalogs_id: productId });
+        }, 1000);
+    } else {
+        console.log('product_id не найден в URL');
+    }
 });
