@@ -129,13 +129,7 @@ _tmr.push({id: "3653306", type: "pageView", start: (new Date()).getTime()});
           <div class="wrap-nav">
 
 			<?= $menu1; ?>
-              <form id="search-form" class="search-header" action="/search" method="get" autocomplete="off">
-                  <div class="search-box">
-                      <input type="text" name="q" id="search-input" placeholder="Введите название товара или категории..." value="<?= isset($query) ? htmlspecialchars($query) : '' ?>" />
-                      <button type="submit">Поиск</button>
-                      <div id="search-suggestions" class="suggestions-box"></div>
-                  </div>
-              </form>
+
           </div>
 
           <div class="contact-header">
@@ -152,13 +146,31 @@ _tmr.push({id: "3653306", type: "pageView", start: (new Date()).getTime()});
             <div class="contact-header-block">
 
               <a href="tel:<?= str_replace(array('-',' ','(',')',),'',$top1); ?>" class="tel"><?= $top1; ?></a>
-
+              <a href="mailto:sales@mpi-corp.ru" class="mail">sales@mpi-corp.ru</a>
               <p class="btn-tel" data-popup="call">Заказать звонок</p>
 
             </div>
-
+                          
           </div>
+    <div class="wrap-header-form-search">
+        
+      <div class="btn-search" data-popup="seacrh-pop">
+        <span>
+<svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+  <g clip-path="url(#clip0_1865_4316)">
+    <path d="M11.7818 3.61938C11.2541 3.08193 10.6252 2.65435 9.93138 2.36133C9.23753 2.06831 8.49251 1.91566 7.73934 1.9122C6.98617 1.90874 6.23977 2.05453 5.54327 2.34116C4.84676 2.62779 4.21394 3.04958 3.68136 3.58216C3.14878 4.11474 2.727 4.74755 2.44037 5.44406C2.15374 6.14057 2.00794 6.88696 2.0114 7.64013C2.01487 8.39331 2.16751 9.13833 2.46053 9.83217C2.75355 10.526 3.18113 11.1549 3.71858 11.6826C4.79118 12.7357 6.23622 13.3226 7.73934 13.3157C9.24246 13.3088 10.682 12.7086 11.7449 11.6457C12.8078 10.5828 13.408 9.14325 13.4149 7.64013C13.4218 6.13702 12.8349 4.69198 11.7818 3.61938ZM2.47822 2.37902C3.82281 1.03476 5.63014 0.254945 7.53061 0.199029C9.43109 0.143113 11.2811 0.815324 12.7024 2.0782C14.1237 3.34108 15.0089 5.09921 15.1769 6.99307C15.3449 8.88692 14.7831 10.7734 13.6064 12.2668L18.295 16.9554L17.0546 18.1958L12.366 13.5072C10.8721 14.6796 8.98726 15.2379 7.09585 15.0682C5.20445 14.8986 3.44902 14.0137 2.18767 12.5941C0.926324 11.1745 0.25408 9.3272 0.308071 7.42897C0.362063 5.53073 1.13822 3.72461 2.47822 2.37902Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1865_4316">
+      <rect width="18" height="18" fill="white" transform="translate(0.0999756)"/>
+    </clipPath>
+  </defs>
+</svg>
+                        </span>
+                        Найти
+      </div>
 
+            </div>
           <div class="header-cart">
 
             <a href="<?= site_url("orders/cart") ?>">
@@ -244,7 +256,15 @@ _tmr.push({id: "3653306", type: "pageView", start: (new Date()).getTime()});
     </div>
 
     <div class="wrap-gamb-content">
-
+                <form id="search-form" class="search-header" action="/search" method="get" autocomplete="off">
+                  <div class="search-box">
+                      <input type="text" name="q" id="search-input" placeholder="Поиск" value="<?= isset($query) ? htmlspecialchars($query) : '' ?>" />
+                      <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <path d="M11.5801 3.91999C11.0788 3.40942 10.4813 3.00322 9.82219 2.72485C9.16304 2.44649 8.45527 2.30147 7.73977 2.29819C7.02426 2.2949 6.31519 2.4334 5.65351 2.7057C4.99183 2.97799 4.39066 3.37869 3.88472 3.88463C3.37877 4.39058 2.97808 4.99175 2.70578 5.65343C2.43348 6.31511 2.29498 7.02418 2.29827 7.73968C2.30156 8.45519 2.44657 9.16296 2.72494 9.82211C3.0033 10.4813 3.4095 11.0787 3.92007 11.58C4.93904 12.5804 6.31181 13.138 7.73977 13.1314C9.16772 13.1248 10.5353 12.5547 11.545 11.545C12.5548 10.5352 13.1249 9.16763 13.1315 7.73968C13.138 6.31173 12.5805 4.93895 11.5801 3.91999ZM2.74174 2.74166C4.01909 1.46463 5.73604 0.723805 7.54147 0.670685C9.34691 0.617565 11.1044 1.25616 12.4547 2.45588C13.8049 3.65561 14.6458 5.32582 14.8054 7.12497C14.965 8.92412 14.4313 10.7163 13.3134 12.135L17.7676 16.5892L16.5892 17.7675L12.1351 13.3133C10.7159 14.4271 8.92528 14.9575 7.12846 14.7963C5.33163 14.6351 3.664 13.7945 2.46572 12.4459C1.26745 11.0973 0.628821 9.34238 0.680113 7.53907C0.731404 5.73576 1.46875 4.01996 2.74174 2.74166Z" fill="white"/>
+</svg></button>
+                      <div id="search-suggestions" class="suggestions-box"></div>
+                  </div>
+              </form>
       <div class="container">
 
         <div class="wrap-hidden-design-tablet">
@@ -252,6 +272,7 @@ _tmr.push({id: "3653306", type: "pageView", start: (new Date()).getTime()});
           <nav class="gamb-nav">
 
             <?= $menu2; ?>
+
 
           </nav>
 
@@ -633,6 +654,32 @@ _tmr.push({id: "3653306", type: "pageView", start: (new Date()).getTime()});
 
         <a href="<?= site_url('/') ?>" class="popup-back-close-btn">Перейти на главную</a>
 
+      </div>
+
+    </div>
+
+  </div>
+    <div id="seacrh-pop" class="popup">
+
+    <div class="popup-body">
+
+      <div class="popup-content">
+
+        <div class="container">
+                <form id="search-form" class="search-header" action="/search" method="get" autocomplete="off">
+                  <div class="search-box">
+                      <input type="text" name="q" id="search-input" placeholder="Поиск" value="<?= isset($query) ? htmlspecialchars($query) : '' ?>" />
+                      <button type="submit">Найти</button>
+                      <div id="search-suggestions" class="suggestions-box"></div>
+                  </div>
+              </form>
+                      <div class="popup-close">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <path d="M7.46671 26.6668L5.33337 24.5335L13.8667 16.0002L5.33337 7.46683L7.46671 5.3335L16 13.8668L24.5334 5.3335L26.6667 7.46683L18.1334 16.0002L26.6667 24.5335L24.5334 26.6668L16 18.1335L7.46671 26.6668Z" fill="#666666"/>
+</svg>
+        </div>
+</div>
       </div>
 
     </div>
