@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 	$('.slider4').bxSlider({
 
 		slideWidth: 243,

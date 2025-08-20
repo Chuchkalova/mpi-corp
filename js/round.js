@@ -1,5 +1,6 @@
 $(document).ready(function() {
   // initializeSlider();
+
 	$(document).on('click', ".see-more", function(e) {
 		$(this).closest('.wrap-dev-content-item').find('.dev-content-item').show();
 		$(this).hide();

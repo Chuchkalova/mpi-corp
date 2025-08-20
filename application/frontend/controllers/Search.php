@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Search extends CI_Controller {
+class Search extends MY_ControllerTmpl {
+    var $table="search";
+    var $table_top="search";
 
     public function __construct() {
         parent::__construct();
@@ -9,19 +11,26 @@ class Search extends CI_Controller {
     }
 
     public function index() {
-        $query = $this->input->get('q', true); // запрос из ?q=текст
+        $query = $this->input->get('q', true);
 
-        $data['query'] = $query;
-        $data['categories'] = [];
-        $data['products'] = [];
+        $this->load->model('Search_model');
+
+        $data = [
+            'query' => $query,
+            'categories' => [],
+            'products' => []
+        ];
 
         if ($query) {
             $data['categories'] = $this->Search_model->searchCategories($query);
             $data['products'] = $this->Search_model->searchProducts($query);
         }
 
-        $this->load->view('search_result', $data);
+        // Подключение шаблонной вьюхи
+        $this->template->write_view('content_main', 'search/search_result', $data);
+        echo $this->template->render('', TRUE);
     }
+
 
     // AJAX endpoint
     public function ajax() {
