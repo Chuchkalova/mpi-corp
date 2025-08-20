@@ -261,9 +261,10 @@
 
 								</div>
 
-								<div class="dev-content-item-cart-btn add-cart <? if($this->cart->has_id($item_one2['id'])) echo 'add-in'; ?>" data-id='<?= $item_one2['id'] ?>' ></div>
+								<div class="dev-content-item-cart-btn add-cart <? if($this->cart->has_id($item_one2['id'])) echo 'add-in'; ?>" data-id='<?= $item_one2['id'] ?>'></div>
 
 							  </form>
+
 							</div>
 
 						  </div>
