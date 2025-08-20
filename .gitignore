@@ -20,6 +20,9 @@
 
 *.txt
 *.xml
+*.cache
+*.zip
+*.rar
 
 
 # Исключаем все папки с именем images
@@ -27,3 +30,4 @@ images/
 vendor/
 .default/
 upload/
+file/
