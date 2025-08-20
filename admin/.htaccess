@@ -1,13 +1,6 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 	RewriteBase /admin
-	
-	RewriteCond %{HTTP_HOST} ^mpi\.ru\.com$ [NC]
-	RewriteRule ^(.*)$ https://mpi-corp.ru/admin/$1 [R=301,L]
-	
-	RewriteCond %{HTTP_HOST} ^mpi\.test-1pos\.ru$ [NC]
-	RewriteRule ^(.*)$ https://mpi-corp.ru/admin/$1 [R=301,L]
-	
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d	
 	RewriteRule ^(.*)$ index.php/$1 [L]
