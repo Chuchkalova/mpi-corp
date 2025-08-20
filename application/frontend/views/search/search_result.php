@@ -1,12 +1,5 @@
 <style>
-    /* 🌟 Общие стили */
-    body {
-        font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
-        background: #f9f9fb;
-        color: #222;
-        margin: 0;
-        padding: 40px;
-    }
+    /* Общие стили */
     h1 {
         font-size: 28px;
         font-weight: 700;
@@ -24,7 +17,14 @@
         padding-bottom: 8px;
     }
 
-    /* 🔍 Поисковая форма */
+    .search-wrapper {
+        padding-top: 160px;
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Поисковая форма */
     .search-box {
         position: relative;
         display: flex;
@@ -60,7 +60,7 @@
         background: #357ABD;
     }
 
-    /* 💡 Подсказки */
+    /* Подсказки */
     .suggestions-box {
         position: absolute;
         top: 52px;
@@ -97,7 +97,7 @@
         color: black;
     }
 
-    /* 📋 Списки */
+    /* Списки */
     .result-list {
         list-style: none;
         margin: 0;
@@ -127,7 +127,7 @@
         transform: translateY(-2px);
     }
 
-    /* 🛍️ Для товаров */
+    /* Для товаров */
     .product-name {
         font-weight: 500;
     }
@@ -136,15 +136,123 @@
         font-weight: 700;
     }
 
-    /* 😔 Нет результатов */
+    /* Нет результатов */
     .no-results {
         font-size: 18px;
         color: #888;
         margin-top: 30px;
     }
+    .result-list li a {
+        display: flex;
+        gap: 20px;
+        align-items: stretch;
+        text-align: left;
+        padding: 20px;
+        justify-content: start;
+    }
+
+    .category-item a, .product-item a {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .category-item a p, .product-item a p {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 15px;
+    }
+
+    .category-image img,
+    .product-image img {
+        width: 130px;
+        object-fit: cover;
+        border-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    .category-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .category-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #333;
+    }
+
+    .category-desc {
+        font-size: 14px;
+        color: #666;
+    }
+
+    .product-info {
+        flex: 1;
+    }
+
+    .product-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #333;
+        line-height: 24px;
+    }
+
+    .product-desc {
+        font-size: 14px;
+        color: #666;
+    }
+
+    .product-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .product-price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #4a90e2;
+        margin-bottom: 8px;
+    }
+
+    .btn-more {
+        background: #4a90e2;
+        color: #fff;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s ease;
+    }
+
+    .btn-more:hover {
+        background: #357ABD;
+    }
+
+    .wrap-header.fix {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        left: 0;
+        bottom: auto;
+        background: #FFF;
+        margin-top: 0;
+        background: rgba(255, 255, 255, 0.90);
+        box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(5px);
+        transition: top 0.3s;
+    }
 </style>
 <div class="search-wrapper">
-    <h1>🔍 Результаты поиска: <span class="highlight">"<?= htmlspecialchars($query) ?>"</span></h1>
+    <h1>Результаты поиска: <span class="highlight">"<?= htmlspecialchars($query) ?>"</span></h1>
 
     <form id="search-form" action="/search" method="get" autocomplete="off">
         <div class="search-box">
@@ -156,12 +264,18 @@
 
     <?php if (!empty($categories)): ?>
         <div class="result-block">
-            <h2>📂 Категории</h2>
+            <h2>Категории</h2>
             <ul class="result-list">
                 <?php foreach ($categories as $cat): ?>
-                    <li>
+                    <li class="category-item">
                         <a href="/<?= $cat['url'] ?>">
-                            <?= $cat['name'] ?>
+                            <div class="category-image">
+                                <img src="<?= get_image('catalogs_group','file',$cat['id']) ?>" alt="<?= $cat['name'] ?>">
+                            </div>
+                            <div class="category-info">
+                                <div class="category-name"><?= $cat['name'] ?></div>
+                                <div class="category-desc"><?= $cat['short_text'] ?></div>
+                            </div>
                         </a>
                     </li>
                 <?php endforeach; ?>
@@ -171,13 +285,24 @@
 
     <?php if (!empty($products)): ?>
         <div class="result-block">
-            <h2>🛍️ Товары</h2>
+            <h2>Товары</h2>
             <ul class="result-list">
                 <?php foreach ($products as $prod): ?>
-                    <li>
+                    <li class="product-item">
                         <a href="/<?= $prod['category_url'] ?>?product_id=<?= $prod['id'] ?>">
-                            <div class="product-name"><?= $prod['name'] ?></div>
-                            <div class="product-price"><?= number_format($prod['price'], 0, '.', ' ') ?> ₽</div>
+                            <div class="product-image">
+                                <img src="<?= get_image('catalogs','file1',$prod['id']) ?>" alt="<?= $prod['name'] ?>">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name"><?= $prod['name'] ?></div>
+                                <div class="product-desc"><?= $prod['short_text'] ?></div>
+                            </div>
+                            <div class="product-meta">
+                                <div class="product-price">
+                                    <?= ($prod['price'] > 0) ? number_format($prod['price'], 0, '.', ' ') . ' ₽' : 'Цена по запросу' ?>
+                                </div>
+                                <div><button class="btn-more">Подробнее</button></div>
+                            </div>
                         </a>
                     </li>
                 <?php endforeach; ?>
@@ -241,6 +366,24 @@
         $(document).click(function(e){
             if(!$(e.target).closest("#search-form").length){
                 $("#search-suggestions").hide();
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const wrapHeader = document.querySelector('.wrap-header');
+
+        if (!wrapHeader) return;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 80) {
+                if (!wrapHeader.classList.contains('fix')) {
+                    wrapHeader.classList.add('fix');
+                }
+            } else {
+                if (wrapHeader.classList.contains('fix')) {
+                    wrapHeader.classList.remove('fix');
+                }
             }
         });
     });
