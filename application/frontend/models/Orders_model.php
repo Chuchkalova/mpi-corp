@@ -32,7 +32,6 @@ class orders_model extends MY_Model{
 				$this->cart->update(array(
 				   'rowid' => $cart_item['rowid'],
 				   'qty'   => $cart_item['qty']+$count,
-
 				));
 			}
 			else{
@@ -41,13 +40,12 @@ class orders_model extends MY_Model{
 					'qty'     => $count,
 					'price'   => $item['price'],
 					'name'    => time().rand(0, 100),
-
 				));
 			}
 		}
 	}
 	
-	public function cart_info($item_id=null, $count = 1){
+	public function cart_info(){
 		$items=$this->get_cart_items();
 		$count_po=$summa_po=$count_oborud=$summa_oborud=0;
 		foreach($items as $item_one){
@@ -60,13 +58,7 @@ class orders_model extends MY_Model{
 				$summa_oborud+=$item_one['qty']*$item_one['price'];
 			}
 		}
-		if($item_id != null){
-            $this->load->model('catalogs_model');
-            $item=$this->catalogs_model->get_by_id($item_id);
-        }
-        else{
-            $item=array('name'=>'','id'=>'','price'=>'');
-        }
+				
 		return array(
 			'count'=>$this->cart->total_items_qty(),
 			'summa'=>$this->cart->total(),
@@ -75,10 +67,6 @@ class orders_model extends MY_Model{
 			'count_oborud'=>$count_oborud,
 			'summa_oborud'=>number_format($summa_oborud,0,'.',' '),
 			'summa_formatted'=>number_format($this->cart->total(),0,'.',' '),
-            'add_name' => $item['name'],
-            'add_id' => $item['id'],
-            'add_price' => $item['price'],
-            'add_count' => $count,
 		);
 	}
 	
